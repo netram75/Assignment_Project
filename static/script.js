@@ -270,6 +270,13 @@
     els.uploadBtn.disabled = true;
     setComposer(false);
 
+    clearEmpty();
+    const uploadStatusRow = appendMsgDOM(
+      'bot',
+      `Uploading <strong>${esc(file.name)}</strong>…<br><small style="opacity:0.55;font-size:0.8em">First request may take ~30 s while the server wakes up from sleep.</small>`,
+      false, false
+    );
+
     const fd = new FormData();
     fd.append('file', file);
     try {
@@ -279,6 +286,7 @@
         throw new Error(err.detail || `Upload failed (${res.status})`);
       }
       const d = await res.json();
+      uploadStatusRow.remove();
 
       pdfLoaded = true;
       liveHistory = [];
@@ -304,6 +312,7 @@
       setComposer(true);
       renderHistoryList();
     } catch (e) {
+      uploadStatusRow.remove();
       appendMsgDOM('bot', `Upload failed: ${esc(e.message)}`, false, true);
     } finally {
       els.uploadBtn.disabled = false;
@@ -401,4 +410,7 @@
       }
     } catch {}
   })();
+
+  // Ping /api/health every 10 min to keep Render free-tier container warm
+  setInterval(() => fetch('/api/health').catch(() => {}), 10 * 60 * 1000);
 })();
