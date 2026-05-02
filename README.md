@@ -9,7 +9,7 @@ Built for STAIR Digital × Scaler School of Technology internship assessment, Ta
 - **Strict grounding** — answers come only from the uploaded PDF; no training-knowledge leakage.
 - **Two-stage refusal** — low-similarity questions are refused without an LLM call (fast + deterministic); the LLM is also prompted to refuse explicitly.
 - **Page citations** — every factual claim cites `[Page X]`; the API also returns retrieved-chunk metadata (page + score + preview) so reviewers can audit grounding.
-- **Multilingual** — Hindi, Spanish, etc. Embeddings (`gemini-embedding-2`) are multilingual; the prompt instructs the LLM to match the user's language.
+- **Multilingual** — Hindi, Spanish, etc. Embeddings (`text-embedding-004`) are multilingual; the prompt instructs the LLM to match the user's language.
 - **Observability** — structured stdout logging on every upload, retrieval, and chat turn.
 - **One-command eval** — `python tests/run_eval.py` runs 10 cases (5 valid + 3 invalid + 2 multilingual) and prints a PASS/FAIL table.
 

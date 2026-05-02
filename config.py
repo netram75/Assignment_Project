@@ -9,7 +9,7 @@ GROQ_API_KEY   = os.getenv("GROQ_API_KEY", "")
 # Chat model (Groq free tier — 14,400 req/day)
 GROQ_MODEL      = "llama-3.3-70b-versatile"
 # Embedding model (Google AI Studio — only called on upload, not every chat)
-EMBEDDING_MODEL = "models/gemini-embedding-2"
+EMBEDDING_MODEL = "models/text-embedding-004"
 
 CHUNK_SIZE    = 800
 CHUNK_OVERLAP = 200
