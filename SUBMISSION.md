@@ -1,6 +1,6 @@
 # Submission — PDF-Constrained Conversational Agent (Task 3)
 
-**Candidate:** Kushal Talati — kushal.talati@scaler.com
+**Candidate:** Netram Faran — netram.24bcs10329@sst.scaler.com
 **Submission to:** yashwardhansinghrathore1@gmail.com (CC: saraffshubham@gmail.com)
 
 ---

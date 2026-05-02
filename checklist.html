@@ -1,0 +1,341 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<title>STAIR Digital — Candidate Checklist</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: Arial, sans-serif;
+    font-size: 11px;
+    background: #fff;
+    padding: 24px 32px;
+    color: #000;
+  }
+
+  .logo-row {
+    display: flex;
+    align-items: center;
+    margin-bottom: 18px;
+  }
+  .logo-box {
+    width: 48px; height: 48px;
+    background: #1a1a2e;
+    color: #fff;
+    display: flex; align-items: center; justify-content: center;
+    font-size: 10px;
+    font-weight: 700;
+    letter-spacing: 1px;
+    border-radius: 4px;
+  }
+
+  .title {
+    font-size: 14px;
+    font-weight: 700;
+    margin-bottom: 4px;
+  }
+  .candidate-info {
+    font-size: 11px;
+    color: #333;
+    margin-bottom: 16px;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: fixed;
+  }
+
+  th {
+    background: #f2f2f2;
+    border: 1px solid #bbb;
+    padding: 6px 8px;
+    text-align: center;
+    font-size: 11px;
+    font-weight: 700;
+    vertical-align: middle;
+  }
+
+  td {
+    border: 1px solid #bbb;
+    padding: 5px 7px;
+    vertical-align: top;
+    font-size: 10.5px;
+    line-height: 1.45;
+  }
+
+  .col-sno   { width: 4%; text-align: center; }
+  .col-cat   { width: 14%; font-weight: 600; }
+  .col-skill { width: 13%; }
+  .col-crit  { width: 52%; }
+  .col-rate  { width: 8%;  text-align: center; font-weight: 700; font-size: 13px; }
+
+  .cat-cell  { font-weight: 700; color: #1a1a2e; }
+  .sno-cell  { text-align: center; font-weight: 600; color: #555; }
+
+  .skill-cell { color: #1a56a0; }
+
+  .rating-1 { color: #c0392b; }
+  .rating-2 { color: #e67e22; }
+  .rating-3 { color: #f0c000; }
+  .rating-4 { color: #27ae60; }
+  .rating-5 { color: #1a7a4a; font-weight: 900; }
+
+  tr:nth-child(even) td { background: #fafafa; }
+  tr:hover td { background: #f0f7ff; }
+
+  .section-header td {
+    background: #e8ecf5 !important;
+    font-weight: 700;
+    color: #1a1a2e;
+  }
+
+  @media print {
+    body { padding: 12px 16px; }
+    tr:hover td { background: inherit; }
+  }
+</style>
+</head>
+<body>
+
+<div class="logo-row">
+  <div class="logo-box">STAIR</div>
+</div>
+
+<div class="title">Candidate Self-Assessment Checklist — STAIR Digital Internship</div>
+<div class="candidate-info">
+  <strong>Name:</strong> Netram Faran &nbsp;|&nbsp;
+  <strong>Email:</strong> netram.24bcs10329@sst.scaler.com &nbsp;|&nbsp;
+  <strong>Institution:</strong> Scaler School of Technology &nbsp;|&nbsp;
+  <strong>Task Submitted:</strong> Task 3 — PDF-Constrained Conversational Agent
+</div>
+
+<table>
+  <thead>
+    <tr>
+      <th class="col-sno">S. No.</th>
+      <th class="col-cat">Category</th>
+      <th class="col-skill">Skill / Area</th>
+      <th class="col-crit">Evaluation Criteria (What Good Looks Like)</th>
+      <th class="col-rate">Candidate Self-Rating (1–5)</th>
+    </tr>
+  </thead>
+  <tbody>
+
+    <!-- LLM Fundamentals -->
+    <tr>
+      <td class="sno-cell">1</td>
+      <td class="cat-cell">LLM Fundamentals</td>
+      <td class="skill-cell">OpenAI API</td>
+      <td>Has built apps using OpenAI APIs; understands function calling, streaming responses, temperature/max tokens; can explain token costs and optimization strategies; has handled failures (rate limits, retries)</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">2</td>
+      <td></td>
+      <td class="skill-cell">Claude API</td>
+      <td>Understands differences vs OpenAI (context length, reasoning style); has used Claude for long-document tasks; knows when to choose Claude over others</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">3</td>
+      <td></td>
+      <td class="skill-cell">Open-source LLMs</td>
+      <td>Has run models locally or via APIs; understands trade-offs (latency, cost, control); basic familiarity with HuggingFace or inference endpoints</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+
+    <!-- Agent Frameworks -->
+    <tr>
+      <td class="sno-cell">4</td>
+      <td class="cat-cell">Agent Frameworks</td>
+      <td class="skill-cell">LangChain</td>
+      <td>Built chains/agents; understands tools, memory, callbacks; can debug agent loops and failures</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">5</td>
+      <td></td>
+      <td class="skill-cell">LlamaIndex</td>
+      <td>Has created document pipelines; understands indexing, querying, connectors; used it in a real project</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">6</td>
+      <td></td>
+      <td class="skill-cell">Multi-agent frameworks</td>
+      <td>Built or experimented with multi-agent systems; understands role separation, coordination, and failure modes</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+
+    <!-- RAG Systems -->
+    <tr>
+      <td class="sno-cell">7</td>
+      <td class="cat-cell">RAG Systems</td>
+      <td class="skill-cell">Vector DBs</td>
+      <td>Has used at least one vector DB; understands embeddings, indexing, similarity search; knows basic trade-offs</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">8</td>
+      <td></td>
+      <td class="skill-cell">Retrieval Design</td>
+      <td>Can explain chunking strategies, embedding selection, context window limits; has improved retrieval quality in a project</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">9</td>
+      <td></td>
+      <td class="skill-cell">Evaluation</td>
+      <td>Has methods to test RAG quality (manual evals, benchmarks); understands hallucination vs retrieval failure</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+
+    <!-- System Integration -->
+    <tr>
+      <td class="sno-cell">10</td>
+      <td class="cat-cell">System Integration</td>
+      <td class="skill-cell">APIs</td>
+      <td>Has built and consumed REST APIs; can connect LLMs to external tools/services; understands auth and error handling</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">11</td>
+      <td></td>
+      <td class="skill-cell">Databases</td>
+      <td>Comfortable with SQL/NoSQL basics; can store/retrieve structured data for AI workflows</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">12</td>
+      <td></td>
+      <td class="skill-cell">Enterprise tools</td>
+      <td>Has integrated or simulated integrations (CRM, internal tools, APIs); understands real-world constraints (messy data, permissions)</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+
+    <!-- Agent Design Thinking -->
+    <tr>
+      <td class="sno-cell">13</td>
+      <td class="cat-cell">Agent Design Thinking</td>
+      <td class="skill-cell">Tool usage</td>
+      <td>Can decide when an agent should call a tool vs responds directly; has implemented tool-calling logic</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">14</td>
+      <td></td>
+      <td class="skill-cell">Memory systems</td>
+      <td>Understands short-term vs long-term memory; has implemented conversation history or vector memory</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">15</td>
+      <td></td>
+      <td class="skill-cell">Workflow design</td>
+      <td>Can design multi-step flows (input → reasoning → tool use → output); understands where agents break</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+
+    <!-- Deployment & Infra -->
+    <tr>
+      <td class="sno-cell">16</td>
+      <td class="cat-cell">Deployment &amp; Infra</td>
+      <td class="skill-cell">Cloud</td>
+      <td>Has deployed apps on AWS/GCP/Azure; understands basics of compute, storage, APIs</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">17</td>
+      <td></td>
+      <td class="skill-cell">Hosting</td>
+      <td>Can deploy backend services (FastAPI/Node); basic Docker knowledge; can keep services running</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">18</td>
+      <td></td>
+      <td class="skill-cell">Performance</td>
+      <td>Aware of latency, cost, scaling issues; has optimized prompts or architecture for efficiency</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+
+    <!-- Prompting & Reasoning -->
+    <tr>
+      <td class="sno-cell">19</td>
+      <td class="cat-cell">Prompting &amp; Reasoning</td>
+      <td class="skill-cell">Prompt design</td>
+      <td>Writes structured prompts; uses roles, constraints, examples; can improve outputs iteratively</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">20</td>
+      <td></td>
+      <td class="skill-cell">Debugging</td>
+      <td>Can identify why outputs fail (prompt issue, retrieval issue, tool issue); iterates systematically</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">21</td>
+      <td></td>
+      <td class="skill-cell">Evaluation</td>
+      <td>Has a process to test outputs (test cases, edge cases, consistency checks)</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+
+    <!-- Business Understanding -->
+    <tr>
+      <td class="sno-cell">22</td>
+      <td class="cat-cell">Business Understanding</td>
+      <td class="skill-cell">Use-case thinking</td>
+      <td>Can identify practical AI use cases (not gimmicks); ties solutions to workflows</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">23</td>
+      <td></td>
+      <td class="skill-cell">ROI awareness</td>
+      <td>Understands cost vs benefit; can prioritize high-impact use cases</td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+    <tr>
+      <td class="sno-cell">24</td>
+      <td></td>
+      <td class="skill-cell">Communication</td>
+      <td>Can clearly explain what they built, why, and trade-offs; can talk to non-technical stakeholders</td>
+      <td class="col-rate rating-4">4</td>
+    </tr>
+
+    <!-- Agent Platforms -->
+    <tr>
+      <td class="sno-cell">25</td>
+      <td class="cat-cell">Agent Platforms &amp; Ecosystem Awareness</td>
+      <td class="skill-cell">OpenClaw / AutoGen / CrewAI / LangGraph</td>
+      <td>Understands how agent platforms abstract orchestration (tasks, tools, memory, coordination)</td>
+      <td class="col-rate rating-2">2</td>
+    </tr>
+
+    <!-- Platform Deployment -->
+    <tr>
+      <td class="sno-cell">26</td>
+      <td class="cat-cell">Platform Deployment &amp; Environment Fit</td>
+      <td class="skill-cell">Agent Deployment Platforms</td>
+      <td>
+        Understands how platforms are deployed (cloud / on-prem / hybrid)<br><br>
+        Can reason about enterprise constraints: data privacy, security, access control<br><br>
+        Understands integration patterns: APIs, internal systems, event-driven workflows<br><br>
+        Can evaluate platform suitability based on: use case complexity, scale
+      </td>
+      <td class="col-rate rating-3">3</td>
+    </tr>
+
+  </tbody>
+</table>
+
+<br>
+<div style="font-size:10px; color:#888; text-align:right;">
+  Rating scale: 1 = No experience &nbsp;|&nbsp; 2 = Aware/read about it &nbsp;|&nbsp; 3 = Used in a project &nbsp;|&nbsp; 4 = Comfortable, can debug &nbsp;|&nbsp; 5 = Deep expertise
+</div>
+
+</body>
+</html>
