@@ -33,7 +33,6 @@
 ```bash
 docker build -t pdf-agent .
 docker run --rm -p 8000:8000 \
-  -e GOOGLE_API_KEY=YOUR_GOOGLE_KEY \
   -e GROQ_API_KEY=YOUR_GROQ_KEY \
   pdf-agent
 # open http://localhost:8000
@@ -44,8 +43,7 @@ docker run --rm -p 8000:8000 \
 ```bash
 python -m venv .venv && source .venv/bin/activate    # Windows: .venv\Scripts\activate
 pip install -r requirements.txt
-echo "GOOGLE_API_KEY=YOUR_GOOGLE_KEY" > .env
-echo "GROQ_API_KEY=YOUR_GROQ_KEY" >> .env
+echo "GROQ_API_KEY=YOUR_GROQ_KEY" > .env
 python main.py
 # open http://localhost:8000
 ```
@@ -73,7 +71,7 @@ Output: a PASS/FAIL table for all 10 cases, exit code 0 if every case passes.
 
 ## What we built — at a glance
 
-- FastAPI backend, **Groq Llama 3.3 70B** (chat, free 14 400 req/day via `langchain-groq`) + **Gemini `gemini-embedding-2`** (embeddings via `langchain-google-genai`), Chroma in-memory vector store via `langchain-chroma`, pdfplumber for parsing.
+- FastAPI backend, **Groq Llama 3.3 70B** (chat, free 14 400 req/day via `langchain-groq`) + **local all-MiniLM-L6-v2 ONNX** embeddings (bundled with ChromaDB — no API key needed), Chroma in-memory vector store via `langchain-chroma`, pdfplumber for parsing.
 - **Two-stage refusal**: similarity threshold gate before any LLM call, then a strict system prompt with six numbered absolute rules.
 - **Auditable grounding**: API returns retrieved chunks (page + score + preview) alongside the LLM response, so reviewers can verify what the model was *given*, not just what it said.
 - **Structured logging** on every step (extract → chunk → index → search → chat) with request IDs and per-stage latency.
