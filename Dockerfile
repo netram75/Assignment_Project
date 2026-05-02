@@ -9,6 +9,9 @@ RUN apt-get update \
 COPY requirements.txt .
 RUN pip install --no-cache-dir -r requirements.txt
 
+# Pre-download the local embedding model so cold starts don't fetch it at runtime
+RUN python -c "from chromadb.utils.embedding_functions import DefaultEmbeddingFunction; DefaultEmbeddingFunction()"
+
 COPY . .
 
 EXPOSE 8000

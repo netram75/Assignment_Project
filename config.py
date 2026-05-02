@@ -7,16 +7,15 @@ GOOGLE_API_KEY = os.getenv("GOOGLE_API_KEY", "")
 GROQ_API_KEY   = os.getenv("GROQ_API_KEY", "")
 
 # Chat model (Groq free tier — 14,400 req/day)
-GROQ_MODEL      = "llama-3.3-70b-versatile"
-# Embedding model (Google AI Studio — only called on upload, not every chat)
-EMBEDDING_MODEL = "models/embedding-001"
+GROQ_MODEL = "llama-3.3-70b-versatile"
 
 CHUNK_SIZE    = 800
 CHUNK_OVERLAP = 200
 TOP_K         = 5
 
-RELEVANCE_HARD_FLOOR = 0.25   # below this → refuse without calling LLM
-RELEVANCE_STRONG     = 0.40   # used for logging only
+# Lowered to 0.15 to accommodate cross-lingual queries with local embeddings
+RELEVANCE_HARD_FLOOR = 0.15
+RELEVANCE_STRONG     = 0.40
 
 MAX_HISTORY            = 10
 HISTORY_TURNS_IN_PROMPT = 6

@@ -47,8 +47,6 @@ _history: List[dict] = []
 def get_agent() -> PDFAgent:
     global _agent
     if _agent is None:
-        if not config.GOOGLE_API_KEY:
-            raise HTTPException(status_code=500, detail="GOOGLE_API_KEY is not set. Add it to .env.")
         if not config.GROQ_API_KEY:
             raise HTTPException(status_code=500, detail="GROQ_API_KEY is not set. Add it to .env.")
         _agent = PDFAgent()
