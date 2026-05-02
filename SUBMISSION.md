@@ -10,7 +10,7 @@
 - [x] Working agent system (this repo)
 - [x] Short technical note → [TECHNICAL_NOTE.md](TECHNICAL_NOTE.md)
 - [x] Test instructions for evaluators → this file, section "How to test"
-- [ ] Demo video → **TODO: record + paste link here**
+- [x] Demo video → https://youtu.be/HIZGAao6Emk
 - [x] Deployed interface → https://pdf-agent-hkd1.onrender.com
 - [x] Sample PDF → `tests/sample.pdf` *(replace with your chosen sample before submission)*
 - [x] 5 valid + 3 invalid + 2 multilingual queries → `tests/test_cases.json`
@@ -22,7 +22,7 @@
 
 - **Repo:** https://github.com/netram75/Assignment_Project
 - **Live demo:** https://pdf-agent-hkd1.onrender.com — health check at https://pdf-agent-hkd1.onrender.com/api/health
-- **Demo video:** *paste link here*
+- **Demo video:** https://youtu.be/HIZGAao6Emk
 
 ---
 
@@ -60,7 +60,7 @@ python main.py
 While the server is running, in a separate terminal:
 
 ```bash
-python tests/run_eval.py --pdf tests/sample.pdf
+python tests/run_eval.py --url https://pdf-agent-hkd1.onrender.com
 ```
 
 Output: a PASS/FAIL table for all 10 cases, exit code 0 if every case passes.
