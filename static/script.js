@@ -273,7 +273,8 @@
     clearEmpty();
     const uploadStatusRow = appendMsgDOM(
       'bot',
-      `Uploading <strong>${esc(file.name)}</strong>…<br><small style="opacity:0.55;font-size:0.8em">First request may take ~30 s while the server wakes up from sleep.</small>`,
+      `<span class="upload-status-wrap"><span class="upload-spinner"></span><strong>${esc(file.name)}</strong></span>` +
+      `<span class="upload-status-hint">First request may take ~30 s while the server wakes up from sleep.</span>`,
       false, false
     );
 

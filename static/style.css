@@ -576,6 +576,33 @@ body {
   0%, 60%, 100% { opacity: 0.25; transform: scale(0.75); }
   30%            { opacity: 1;   transform: scale(1); }
 }
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Upload spinner */
+.upload-spinner {
+  width: 13px;
+  height: 13px;
+  border: 1.5px solid rgba(165, 180, 252, 0.2);
+  border-top-color: var(--accent-text);
+  border-radius: 50%;
+  animation: spin 0.75s linear infinite;
+  display: inline-block;
+  flex-shrink: 0;
+}
+.upload-status-wrap {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+}
+.upload-status-hint {
+  display: block;
+  margin-top: 5px;
+  padding-left: 22px;
+  font-size: 12px;
+  color: var(--text-4);
+}
 
 /* ─── Mobile ──────────────────────────────────── */
 @media (max-width: 720px) {
