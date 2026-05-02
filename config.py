@@ -13,8 +13,9 @@ CHUNK_SIZE    = 800
 CHUNK_OVERLAP = 200
 TOP_K         = 5
 
-# Lowered to 0.15 to accommodate cross-lingual queries with local embeddings
-RELEVANCE_HARD_FLOOR = 0.15
+# Lowered to 0.05 — local MiniLM embeddings score Hindi queries low against English PDFs;
+# real out-of-scope refusals are handled by the LLM system prompt (Rule 3)
+RELEVANCE_HARD_FLOOR = 0.05
 RELEVANCE_STRONG     = 0.40
 
 MAX_HISTORY            = 10
