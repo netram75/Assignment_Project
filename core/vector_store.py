@@ -19,10 +19,10 @@ class _LocalEmbeddings(Embeddings):
         self._fn = _ChromaEF()
 
     def embed_documents(self, texts: List[str]) -> List[List[float]]:
-        return [list(v) for v in self._fn(texts)]
+        return [[float(x) for x in v] for v in self._fn(texts)]
 
     def embed_query(self, text: str) -> List[float]:
-        return list(self._fn([text])[0])
+        return [float(x) for x in self._fn([text])[0]]
 
 
 class VectorStore:
