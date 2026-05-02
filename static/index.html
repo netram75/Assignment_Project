@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>PDF Agent</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/style.css" />
+</head>
+<body>
+  <div class="layout">
+
+    <!-- ── Sidebar ── -->
+    <aside class="sidebar">
+      <div class="sb-top">
+        <div class="brand">
+          <div class="brand-icon">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+            </svg>
+          </div>
+          <span class="brand-name">PDF Agent</span>
+        </div>
+        <button id="new-chat-btn" class="new-chat-btn">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <line x1="12" y1="5" x2="12" y2="19"/><line x1="5" y1="12" x2="19" y2="12"/>
+          </svg>
+          New chat
+        </button>
+      </div>
+
+      <div id="history-list" class="history-list">
+        <p class="history-empty">No conversations yet</p>
+      </div>
+
+      <div class="sb-bottom">
+        <div class="model-row">
+          <span class="model-dot"></span>
+          <span>Groq &nbsp;&middot;&nbsp; Llama 3.3 70B</span>
+        </div>
+        <p class="feature-row">Strict grounding &nbsp;&middot;&nbsp; Page citations &nbsp;&middot;&nbsp; Multilingual</p>
+      </div>
+    </aside>
+
+    <!-- ── Main ── -->
+    <main class="main" id="main">
+
+      <!-- history-view banner (shown when browsing old sessions) -->
+      <div id="hist-banner" class="hist-banner hidden">
+        <div class="hb-left">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+            <polyline points="14 2 14 8 20 8"/>
+          </svg>
+          <span id="hb-title">Past session</span>
+        </div>
+        <button id="hb-back-btn" class="hb-back-btn">
+          <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <polyline points="15 18 9 12 15 6"/>
+          </svg>
+          Back to current chat
+        </button>
+      </div>
+
+      <!-- messages -->
+      <div id="chat-messages" class="messages">
+        <div class="empty-state">
+          <div class="empty-icon">
+            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+              <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+              <polyline points="14 2 14 8 20 8"/>
+              <line x1="16" y1="13" x2="8" y2="13"/>
+              <line x1="16" y1="17" x2="8" y2="17"/>
+            </svg>
+          </div>
+          <h2 class="empty-title">Chat with any PDF</h2>
+          <p class="empty-sub">Click the <span class="inline-kbd">
+            <svg width="11" height="11" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/></svg>
+          </span> button below to upload a PDF, or drag &amp; drop anywhere on this page. Every answer is grounded strictly in the document.</p>
+          <div class="feature-chips">
+            <span class="chip">Strict grounding</span>
+            <span class="chip">Page citations</span>
+            <span class="chip">Refuses off-topic</span>
+            <span class="chip">Multilingual</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- composer -->
+      <div class="cmp-section" id="cmp-section">
+        <div class="cmp-wrap">
+
+          <div id="pdf-tag" class="pdf-tag hidden">
+            <div class="pt-icon">
+              <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/>
+                <polyline points="14 2 14 8 20 8"/>
+              </svg>
+            </div>
+            <span id="pt-name" class="pt-name">—</span>
+            <span id="pt-meta" class="pt-meta"></span>
+          </div>
+
+          <input type="file" id="file-input" accept=".pdf" hidden />
+
+          <form id="chat-form" class="composer" autocomplete="off">
+            <button type="button" id="upload-btn" class="upload-btn" title="Upload PDF (Ctrl+U)">
+              <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                <path d="M21.44 11.05l-9.19 9.19a6 6 0 0 1-8.49-8.49l9.19-9.19a4 4 0 0 1 5.66 5.66l-9.2 9.19a2 2 0 0 1-2.83-2.83l8.49-8.48"/>
+              </svg>
+            </button>
+            <textarea
+              id="user-input"
+              class="cmp-input"
+              placeholder="Ask about the PDF…"
+              maxlength="4000"
+              rows="2"
+              disabled
+            ></textarea>
+            <button id="send-btn" type="submit" class="send-btn" disabled aria-label="Send">
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                <line x1="22" y1="2" x2="11" y2="13"/>
+                <polygon points="22 2 15 22 11 13 2 9 22 2"/>
+              </svg>
+            </button>
+          </form>
+          <p class="cmp-hint">Enter to send &nbsp;&middot;&nbsp; Shift+Enter for new line</p>
+        </div>
+      </div>
+
+    </main>
+  </div>
+
+  <script src="/static/script.js"></script>
+</body>
+</html>
