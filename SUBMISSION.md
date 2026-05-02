@@ -11,7 +11,7 @@
 - [x] Short technical note → [TECHNICAL_NOTE.md](TECHNICAL_NOTE.md)
 - [x] Test instructions for evaluators → this file, section "How to test"
 - [ ] Demo video → **TODO: record + paste link here**
-- [ ] Deployed interface (optional, but done) → **TODO: paste Render URL here**
+- [x] Deployed interface → https://pdf-agent-hkd1.onrender.com
 - [x] Sample PDF → `tests/sample.pdf` *(replace with your chosen sample before submission)*
 - [x] 5 valid + 3 invalid + 2 multilingual queries → `tests/test_cases.json`
 - [x] Bonus: multi-language support (Hindi + Spanish demonstrated)
@@ -20,8 +20,8 @@
 
 ## Live URLs
 
-- **Repo:** *paste GitHub URL here*
-- **Live demo:** *paste Render URL here* — health check at `<URL>/api/health`
+- **Repo:** https://github.com/netram75/Assignment_Project
+- **Live demo:** https://pdf-agent-hkd1.onrender.com — health check at https://pdf-agent-hkd1.onrender.com/api/health
 - **Demo video:** *paste link here*
 
 ---
@@ -67,7 +67,7 @@ python tests/run_eval.py --pdf tests/sample.pdf
 
 Output: a PASS/FAIL table for all 10 cases, exit code 0 if every case passes.
 
-> Note: the 5 "valid" questions in `tests/test_cases.json` are written generically (main topic, key points, methodology, etc.) so they apply to most documents. Edit them to match your specific sample PDF for higher precision.
+> Note: the 5 "valid" questions and 2 multilingual questions in `tests/test_cases.json` are written specifically for `tests/sample.pdf` (a 2-page ML introduction document). All 10 cases pass.
 
 ---
 
