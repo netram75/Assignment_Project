@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.pyo
+.env
+.env.local
+*.pdf
+!tests/sample.pdf
+chroma_data/
+.DS_Store
+venv/
+.venv/
+.idea/
+.vscode/
+*.log
