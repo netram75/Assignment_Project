@@ -1,0 +1,67 @@
+{
+  "_note": "Questions written for sample.pdf — 2-page ML intro doc. Valid cases target specific facts; invalid cases are universal.",
+  "cases": [
+    {
+      "id": "valid-01-definition",
+      "type": "valid",
+      "question": "What is machine learning?",
+      "expect": "Answer explaining ML as a subset of AI that learns from data; [Page 1] citation."
+    },
+    {
+      "id": "valid-02-three-types",
+      "type": "valid",
+      "question": "What are the three main types of machine learning?",
+      "expect": "Supervised, unsupervised, and reinforcement learning; [Page 1] citation."
+    },
+    {
+      "id": "valid-03-supervised",
+      "type": "valid",
+      "question": "What kind of data does supervised learning use?",
+      "expect": "Labeled data; [Page 1] citation."
+    },
+    {
+      "id": "valid-04-applications",
+      "type": "valid",
+      "question": "What are the common applications of machine learning listed in the document?",
+      "expect": "Image recognition, NLP, recommendation systems; [Page 2] citation."
+    },
+    {
+      "id": "valid-05-conclusion",
+      "type": "valid",
+      "question": "What conclusion does the document make about machine learning?",
+      "expect": "Machine learning continues to transform industries worldwide; [Page 2] citation."
+    },
+    {
+      "id": "invalid-01-weather",
+      "type": "invalid",
+      "question": "What is the weather in Mumbai today?",
+      "expect": "Exact refusal message; is_refusal=true; no citations."
+    },
+    {
+      "id": "invalid-02-poem",
+      "type": "invalid",
+      "question": "Write me a short poem about the ocean.",
+      "expect": "Exact refusal message; is_refusal=true."
+    },
+    {
+      "id": "invalid-03-sports",
+      "type": "invalid",
+      "question": "Who won the last FIFA World Cup?",
+      "expect": "Exact refusal message; is_refusal=true."
+    },
+    {
+      "id": "multilingual-01-hindi",
+      "type": "multilingual",
+      "language": "hi",
+      "question": "मशीन लर्निंग के तीन मुख्य प्रकार कौन से हैं?",
+      "expect": "Answer in Hindi (Devanagari script) listing supervised/unsupervised/reinforcement learning; [Page 1] citation."
+    },
+    {
+      "id": "multilingual-02-spanish",
+      "type": "multilingual",
+      "language": "es",
+      "question": "¿Cuáles son las aplicaciones comunes del aprendizaje automático mencionadas en el documento?",
+      "expect": "Answer in Spanish listing image recognition, NLP, recommendation systems; [Page 2] citation."
+    }
+  ]
+}
