@@ -9,6 +9,9 @@ GROQ_API_KEY   = os.getenv("GROQ_API_KEY", "")
 # Chat model (Groq free tier — 14,400 req/day)
 GROQ_MODEL = "llama-3.3-70b-versatile"
 
+# Local embedding model (Chroma's bundled all-MiniLM-L6-v2 ONNX — no API key)
+EMBEDDING_MODEL = "all-MiniLM-L6-v2"
+
 CHUNK_SIZE    = 800
 CHUNK_OVERLAP = 200
 TOP_K         = 5
